@@ -1,0 +1,4 @@
+# OpenCareDocumentation
+---
+permalink: /index.html
+---
