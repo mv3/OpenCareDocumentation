@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>OpenCare Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+<body >
+<nav id="navbar">
+    <header>OpenCare Documentation</header>
+    <ul>
+      <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+      <li><a class="nav-link" href="#User_Roles">User Roles</a> </li>
+      <li><a class="nav-link" href="#Parents">Parents</a></li>
+      <li><a class="nav-link" href="#Teachers">Teachers</a></li>
+      <li><a class="nav-link" href="#Administrators">Administrators</a></li>
+      <li><a class="nav-link" href="#Registration">Registration</a></li>
+      <li><a class="nav-link" href="#Student_List">Student List</a></li>
+      <li><a class="nav-link" href="#Student_Details">Student Details</a></li>
+      <li><a class="nav-link" href="#Admin_Menu">Admin Menu</a></li>
+      <li><a class="nav-link" href="#Contact">Contact</a></li>
+    </ul>
+  </nav>
+  <main id="main-doc">
+    <section class="main-section" id="Introduction">
+      <header>Introduction</header>
+      <article>
+        <p>
+          OpenCare is a free and Open Source daycare management system for managing day-to-day operations of a child care facility.
+          The application is written using ASP.NET Core 2.1 Razor Pages with Entity Framework Core Code First Migrations and SQL Server database.
+          User authentication, authorization, and roles are managed using ASP.NET Core Identity.
+        </p>
+  
+        <p>
+          The source code is publicly available at:
+        </p>
+        <ul>
+          <li>
+            <a href="https://github.com/mv3/Opencare">github.com/mv3</a>
+          </li>
+          <li>
+            <code>https://github.com/mv3/Opencare.git</code>
+          </li>
+        </ul>
+      </article>
+    </section>
+    <section class="main-section" id="User_Roles">
+      <header>User Roles</header>
+      <article>
+        <p>This application uses 3 user roles:</p>  
+        <ul>
+          <li>
+            Parent
+          </li>
+          <li>Teacher</li>
+          <li>
+            Administrator
+          </li>
+        </ul>
+      </article>
+    </section>
+    <section class="main-section" id="Parents">
+      <header>Parents</header>
+      <article>
+        <p>
+          Parent is the most restricted role.
+        </p>  
+        <p>
+          When parents sign in, they are brought to the student list page where they see a 
+          list of all of their children currently registered. Parents can sign their children 
+          in for the day, edit their personal information, or view their detail page.
+        </p>
+        <p>
+          Each child is a assigned to one parent account. A child has an enrollment status of Enrolled, 
+          Not Enrolled, or Pending. This status is set by an Administrator. An administrator may also assign 
+          a child to a group.
+        </p>
+      </article>
+    </section>
+    <section class="main-section" id="Teachers">
+      <header>Teachers</header>
+      <article>
+        <p>
+            When teachers log in they are taken to the Student list page similarly to parents. However, 
+            they will see a list of students assigned to the group that they teach and only have access 
+            to view the enrollment status and sign-in status as well as access to the detail page. 
+          </p>    
+          <p>
+            If a teacher is also a parent, they will see a second list similar to when parents log in. 
+            They have all of the same access to their children that parents do.
+          </p>
+      </article>
+    </section>
+    <section class="main-section" id="Administrators">
+      <header>Administrators</header>
+      <p>
+        Administrators have the highest level of access. An administrator may also 
+        be a teacher and/or a parent.
+      </p>
+      <p>
+        In addition to having all of the access of parents and teachers, administrators also have 
+        access to the Admin menu where they can add new users and assign their role. Additionally 
+        Administrators can manage groups and assign teachers and students to groups.
+      </p>
+    </section>
+    <section class="main-section" id="Registration">
+      <header>Registration</header>
+      <article>
+        New Users can be registered two ways:
+        <p>
+          By filling out the registration page:
+          <img src="img/register.png" alt="Register" style="width:50%">
+        </p>
+        <p>
+          Or by an administrator:
+          <img src="img/adminregister.png" alt="Register" style="width:50%">
+        </p>
+        <p>
+          User who self register will be defaulted to the Parent role. Users registered by an Admin 
+          may be assigned to any role.
+        </p>
+      </article>
+    </section>
+    <section class="main-section" id="Student_List">
+      <header>Student List</header>
+      <article>
+        <p>
+            Administarators can see all registered students. They may edit their 
+            information, view the detail page, or delete students.
+            <img src="img/adminstudentlist.png" alt="Students" style="width:50%">
+        </p>  
+        <p>
+            Teachers see a list of all students enrolled in their group. If the teacher 
+            is also a parent they will see a second list of their children.
+            <img src="img/teacherstudentlist.png" alt="Students" style="width:50%">
+        </p>
+            Parents see only a list of their children.
+            <img src="img/parentstudentlist.png" alt="Students" style="width:50%">
+        </p>
+      </article>
+    </section>
+    <section class="main-section" id="Student_Details">
+      <header>Student Details</header>
+      <article>
+        <p>
+          The Student Detail page displays information about the student including: 
+          <ul>
+            <li>Personal Information</li>
+            <li>Documents, such as medical records and accident reports.</li>
+            <li>Daily information</li>
+          </ul>
+        </p>  
+        <p>
+          The daily information includes Sign-ins, Diaper Changes, Bottles, and notes. 
+          Only information for the current day is displayed, but clicking more allows the 
+          user to view all past records.
+        </p>
+        <img src="img/studentdetail1.png" alt="Students" style="width:50%">
+        <img src="img/studentdetail2.png" alt="Students" style="width:50%">
+        <p>
+            Administrators may accept or reject a students enrollment from this page. 
+            Documents, Diaper changes, Bottles, and Notes may be added by 
+            Administrators, Teachers, or Parents. This allows parents to view what has 
+            occured while the child is at school, but also gives them the opportunity 
+            to give teachers information about their child's activities outside of school.            
+        </p>
+      </article>
+    </section>
+    <section class="main-section" id="Admin_Menu">
+      <header>Admin Menu</header>
+      <article>
+        <p>
+          The Admin menu is only visible and accessible to administrators.
+        </p>
+  
+        <p>
+          The Users list page displays all registered users. The administrator can register 
+          new users or edit, view, and delete existing users. From the detail page, the 
+          administator can see a list of a parent's children and a teacher's students. 
+          When a parent is deleted, all children are also deleted. 
+        </p>
+        <img src="img/userlist.png" alt="Students" style="width:50%">
+  
+        <p>
+          The Group list page allows administrators to add, update, and delete groups. 
+          They can also view a group and assign a teacher to that group.
+        </p>
+        <img src="img/grouplist.png" alt="Students" style="width:50%">
+  
+        <p>
+          The Document list page allows the administrator to add, update, and delete 
+          document types. 
+        </p>
+        <img src="img/doclist.png" alt="Students" style="width:50%">
+        
+      </article>
+    </section>  
+    <section class="main-section" id="Contact">
+      <header>Contact</header>
+      <article>
+            
+            <address>
+                For more information contact: <a href="mailto:mattveit@mattveit.com">Matt Veit</a>.<br>
+                Visit us at: <a href="www.mattveiet.com">mattveit.com</a>
+                </address>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
